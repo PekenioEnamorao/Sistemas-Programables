@@ -1,0 +1,21 @@
+int sensorPin = 2;    // pin de sensor
+int ledPin = 13;      // pin de LED
+int sensorValue = 0;  // variable del sensor
+void setup() {
+  // se declara la salida del led
+  pinMode(ledPin, OUTPUT);
+  Serial.begin(19200);  //se establece la velocidad de comunicacion entre el arduino y la computadora
+}
+void loop() {  
+  sensorValue = analogRead(sensorPin); // lee valores del sensor   
+  
+  digitalWrite(ledPin, HIGH); // enciende el LED 
+  
+  delay(sensorValue);          
+          
+  digitalWrite(ledPin, LOW);// Apaga el LED   
+   
+ delay(sensorValue); //retarda dependiendo lo que asigne el sensor
+ Serial.print(sensorValue);
+  Serial.print("\n");                 
+}
